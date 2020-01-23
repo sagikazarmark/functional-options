@@ -6,14 +6,14 @@ import "time"
 type Option func(*Server)
 
 // Timeout configures a maximum length of idle connection in Server.
-func Timeout(timeout time.Duration) func(*Server) {
+func Timeout(timeout time.Duration) Option {
 	return func(s *Server) {
 		s.timeout = timeout
 	}
 }
 
 // MaxConnections configures a maximum number of active connectioons in Server.
-func MaxConnections(maxConns int) func(*Server) {
+func MaxConnections(maxConns int) Option {
 	return func(s *Server) {
 		s.maxConns = maxConns
 	}
